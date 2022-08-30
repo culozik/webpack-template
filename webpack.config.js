@@ -13,7 +13,7 @@ const config = {
     filename: "myBundle.[fullhash].js",
     path: path.resolve(__dirname, "dist"),
   },
-  devtool: "eval-cheap-source-map",
+  devtool: "eval-cheap-module-source-map",
   devServer: {
     static: path.resolve(__dirname, "dist"),
     port: 3000,
