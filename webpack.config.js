@@ -8,9 +8,9 @@ const { WebpackManifestPlugin } = require("webpack-manifest-plugin");
 const path = require("path");
 
 const config = {
-  entry: "./app/app.js",
+  entry: "./src/app.js",
   output: {
-    filename: "myBundle.[fullhash].js",
+    filename: "main.[fullhash].js",
     path: path.resolve(__dirname, "dist"),
   },
   devtool: "eval-cheap-module-source-map",
@@ -22,7 +22,7 @@ const config = {
   resolve: {
     extensions: [".jsx", "..."],
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./app/index.html" })],
+  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
   mode: "development",
   module: {
     rules: [
@@ -49,6 +49,14 @@ const config = {
             ],
           },
         },
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset/resource",
       },
     ],
   },
